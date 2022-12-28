@@ -11,7 +11,15 @@ config_version=4
 [application]
 
 config/name="Arcanoid"
+config/description="Классический арканойд с особенностями в виде боссов"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=480
+window/size/height=720
+window/size/resizable=false
+window/size/always_on_top=true
 
 [gui]
 
