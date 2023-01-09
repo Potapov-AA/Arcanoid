@@ -13,6 +13,7 @@ func get_input():
 		var bullet = bullet_scene.instance()  
 		bullet.position = $Player.position
 		bullet.rotation = $Player.rotation
+		bullet.set_damage($Player.damage)
 		add_child(bullet)
 
 
@@ -34,12 +35,5 @@ func _on_MeteorTimer_timeout():
 	add_child(meteor)
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+func _on_Player_death():
+	$MeteorTimer.stop()

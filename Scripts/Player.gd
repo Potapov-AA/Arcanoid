@@ -8,6 +8,10 @@ var velocity = Vector2()
 var rotaion_direction = 0
 
 var screen_size
+var damage = 50
+var health = 3
+
+signal death
 
 
 func _ready():
@@ -34,3 +38,10 @@ func _physics_process(delta):
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+	if health <= 0:
+		emit_signal("death")
+		queue_free()
+	
+
+func take_damage():
+	health -= 1
