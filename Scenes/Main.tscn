@@ -23,9 +23,9 @@ curve = SubResource( 1 )
 [node name="MeteorSpawnLocation" type="PathFollow2D" parent="MeteorPath"]
 
 [node name="MeteorTimer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [node name="StartTimer" type="Timer" parent="."]
 
+[connection signal="death" from="Player" to="." method="_on_Player_death"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_MeteorTimer_timeout"]
