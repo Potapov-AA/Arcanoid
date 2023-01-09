@@ -4,10 +4,11 @@ extends KinematicBody2D
 export (int) var speed = 300
 export (float) var rotation_speed = 4
 
-
 var velocity = Vector2()
 var rotaion_direction = 0
+
 var screen_size
+
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -23,7 +24,7 @@ func get_input():
 		rotaion_direction -= 1
 	if Input.is_action_pressed("rotate_right"):
 		rotaion_direction += 1
-
+		
 
 func _physics_process(delta):
 	get_input()
