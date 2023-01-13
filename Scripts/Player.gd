@@ -12,6 +12,7 @@ var damage = 50
 var health = 3
 
 signal death
+signal hit(value)
 
 
 func _ready():
@@ -45,3 +46,6 @@ func _physics_process(delta):
 
 func take_damage():
 	health -= 1
+	emit_signal("hit", health)
+	
+	
