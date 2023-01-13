@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Bullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Meteor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -16,6 +17,7 @@ bullet_scene = ExtResource( 3 )
 meteor_scene = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="MeteorPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
@@ -23,9 +25,13 @@ curve = SubResource( 1 )
 [node name="MeteorSpawnLocation" type="PathFollow2D" parent="MeteorPath"]
 
 [node name="MeteorTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [connection signal="death" from="Player" to="." method="_on_Player_death"]
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_MeteorTimer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
