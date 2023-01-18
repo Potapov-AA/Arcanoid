@@ -18,6 +18,7 @@ meteor_scene = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 visible = false
+z_index = 1
 
 [node name="MeteorPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
