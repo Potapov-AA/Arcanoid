@@ -4,19 +4,23 @@ export(PackedScene) var bullet_scene
 export(PackedScene) var meteor_scene
 
 var score = 0
+var can_shot = true
+var playerShow = false
 
 func _ready():
 	randomize()
+	var timer = get_node("Player/ResetShotTimer")
+	timer.connect("timeout", self, "_on_ResetShotTimer_timeout")
 
 
 func get_input():
-	if Input.is_action_just_pressed("shot") and $Player:
+	if Input.is_action_just_pressed("shot") and $Player and playerShow and can_shot:
 		var bullet = bullet_scene.instance()  
-		bullet.position = $Player.position   
+		bullet.position = $Player.position
 		bullet.rotation = $Player.rotation
 		bullet.set_damage($Player.damage)
 		add_child(bullet)
-
+		can_shot = false
 
 func _process(delta):
 	get_input()
@@ -33,7 +37,11 @@ func _on_MeteorTimer_timeout():
 	meteor.rotation = pre.angle() - PI/2
 	
 	add_child(meteor)
-	
+
+
+func _on_ResetShotTimer_timeout():
+	can_shot = true
+
 	
 func _on_Player_death():
 	$MeteorTimer.stop()
@@ -58,6 +66,7 @@ func new_game():
 	yield($StartTimer, "timeout")
 	
 	$Player.show()
+	playerShow = true
 	$MeteorTimer.start()
 
 
