@@ -25,8 +25,6 @@ func _physics_process(delta):
 		
 
 func _on_VisibilityNotifier2D_screen_exited():
-	if health > 0 and health != -1:
-		get_parent().update_score(1)
 	queue_free()
 
 
