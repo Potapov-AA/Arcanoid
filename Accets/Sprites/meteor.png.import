@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/meteorit.png-437fb3802126fe9eef4767bea56ec761.stex"
+path="res://.import/meteor.png-34fdd88b0419563a8bf32a570d7178d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Accets/Sprites/meteorit.png"
-dest_files=[ "res://.import/meteorit.png-437fb3802126fe9eef4767bea56ec761.stex" ]
+source_file="res://Accets/Sprites/meteor.png"
+dest_files=[ "res://.import/meteor.png-34fdd88b0419563a8bf32a570d7178d9.stex" ]
 
 [params]
 
