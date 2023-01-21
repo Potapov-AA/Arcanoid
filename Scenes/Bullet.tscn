@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Accets/Sprites/bullet.jpg" type="Texture" id=2]
+[ext_resource path="res://Accets/Sprites/bullet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 6 )
@@ -10,7 +10,7 @@ extents = Vector2( 3, 6 )
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "move",
+"name": "default",
 "speed": 5.0
 } ]
 
@@ -23,14 +23,11 @@ script = ExtResource( 1 )
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 1 )
-scale = Vector2( 0.01, 0.02 )
-frames = SubResource( 2 )
-animation = "move"
-
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 1.78814e-07, 1 )
 scale = Vector2( 0.3, 0.6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
 
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
