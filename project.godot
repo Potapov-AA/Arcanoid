@@ -15,12 +15,19 @@ config/description="Классический арканойд с особенн�
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+BackgroundMusic="*res://Scenes/BackgroundMusic.tscn"
+
 [display]
 
-window/size/width=480
-window/size/height=720
+window/size/width=1920
+window/size/height=1080
 window/size/resizable=false
 window/size/always_on_top=true
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gui]
 
@@ -51,6 +58,10 @@ shot={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
