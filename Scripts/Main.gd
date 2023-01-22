@@ -46,9 +46,7 @@ func _on_ResetShotTimer_timeout():
 func _on_Player_death():
 	$MeteorTimer.stop()
 	$HUD.show_game_over()
-	yield(get_tree().create_timer(3.0), "timeout")
-	get_tree().reload_current_scene()
-
+	$HUD.player_score = score
 
 func _on_Player_hit(life):
 	$HUD.update_life(life)
