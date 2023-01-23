@@ -53,7 +53,7 @@ func update_score(score):
 
 
 func update_life(life):
-	$Life.text = str(life)
+	$Life/Count.text = str(life)
 
 
 func _on_StartButton_pressed():

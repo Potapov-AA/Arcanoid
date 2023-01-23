@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Accets/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Accets/Sprites/background.png" type="Texture" id=3]
+[ext_resource path="res://Accets/Sprites/Жизни.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=2]
-size = 64
+size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
@@ -29,10 +30,8 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -44.0
-margin_top = -90.0
-margin_right = 1963.0
-margin_bottom = 1210.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 texture = ExtResource( 3 )
 stretch_mode = 1
 
@@ -48,17 +47,25 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Life" type="Label" parent="."]
+[node name="Life" type="Control" parent="."]
 visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Count" type="Label" parent="Life"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -55.0
+margin_left = 1742.0
 margin_top = 10.0
-margin_right = -10.0
-margin_bottom = 88.0
+margin_right = 1824.0
+margin_bottom = 59.0
 custom_fonts/font = SubResource( 2 )
 text = "3"
 align = 2
+
+[node name="Жизни" type="Sprite" parent="Life"]
+position = Vector2( 1888, 35 )
+texture = ExtResource( 4 )
 
 [node name="Message" type="Label" parent="."]
 anchor_top = 0.5
@@ -75,9 +82,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -192.5
-margin_top = -200.0
+margin_top = -226.0
 margin_right = 192.5
-margin_bottom = -74.0
+margin_bottom = -100.0
 custom_fonts/font = SubResource( 1 )
 text = "START"
 

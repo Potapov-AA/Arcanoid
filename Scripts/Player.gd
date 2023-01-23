@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 export (int) var speed = 285
-export (float) var rotation_speed = 4
+export (float) var rotation_speed = 3.7
 
 var velocity = Vector2()
 var rotaion_direction = 0
